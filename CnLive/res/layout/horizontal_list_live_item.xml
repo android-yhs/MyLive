@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/list_live_height"
+    android:orientation="vertical"
+    android:gravity="left|center" >
+    <LinearLayout 
+        android:id="@id/container"
+        android:layout_width="wrap_content"
+	    android:layout_height="@dimen/list_live_height"
+	    android:orientation="vertical"
+	    android:gravity="left|center" >
+        <TextView 
+	        android:id="@+id/date_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:singleLine="true"
+	        android:layout_marginLeft="5dp"
+	        style="@style/MyTextContentStyle"/>
+	    <TextView 
+	        android:id="@+id/time_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:singleLine="true"
+	        android:layout_marginLeft="5dp"
+	        style="@style/MyTextContentStyle"/>
+	    <TextView 
+	        android:id="@id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:singleLine="true"
+	        android:layout_marginLeft="5dp"
+	        style="@style/MyTextTitleStyle"/>
+    </LinearLayout>
+    <ImageView 
+        android:layout_width="1dp"
+        android:layout_height="@dimen/list_live_height"
+        android:scaleType="fitXY"
+        android:src="@drawable/live_whiteline"/></FrameLayout>

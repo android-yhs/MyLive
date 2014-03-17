@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" />
+    
+    <RelativeLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_bg" >
+        
+        <ImageView 
+            android:id="@+id/radioBg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="fill_parent"
+            android:layout_height="69px"
+            android:layout_gravity="bottom"
+            android:background="@color/alpha0"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/alpha0"
+                android:text="@string/bottom_title1"
+                android:button="@null"
+                android:checked="true"
+                style="@style/MyTextContentStyle" />
+
+            <RadioButton
+                android:id="@+id/radio_live"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/alpha0"
+                android:text="@string/bottom_title2"
+                android:button="@null"
+                style="@style/MyTextContentStyle" />
+
+            <RadioButton
+                android:id="@+id/radio_channel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/alpha0"
+                android:text="@string/bottom_title3"
+                android:button="@null"
+                style="@style/MyTextContentStyle" />
+
+            <RadioButton
+                android:id="@+id/radio_ratting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/alpha0"
+                android:text="@string/bottom_title4"
+                android:button="@null"
+                style="@style/MyTextContentStyle" />
+
+            <RadioButton
+                android:id="@+id/radio_setting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/alpha0"
+                android:text="@string/bottom_title5"
+                android:button="@null"
+                style="@style/MyTextContentStyle" />
+        </RadioGroup>
+    </RelativeLayout>
+
+</LinearLayout>

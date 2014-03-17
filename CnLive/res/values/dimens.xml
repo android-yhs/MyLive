@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="galleryHeight">160dp</dimen>
+    <dimen name="list_home_height">150dp</dimen>
+    <dimen name="list_home_width">120dp</dimen>
+    <dimen name="list_home_image_height">110dp</dimen>
+    <dimen name="list_live_height">70dp</dimen>
+    <dimen name="list_live_left_width">100dp</dimen>
+    <dimen name="small_image_width">40dp</dimen>
+    <dimen name="small_image_height">25dp</dimen>
+    <dimen name="player_height">350dp</dimen>
+
+</resources>

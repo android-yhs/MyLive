@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+    
+    <include layout="@layout/include_top"/>
+    
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:orientation="vertical" >
+
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:orientation="horizontal" >
+	        <TextView 
+	            android:layout_width="@dimen/list_live_left_width"
+	            android:layout_height="match_parent"
+	            android:gravity="center"
+	            android:text="@string/tv_ratting"
+	            style="@style/MyTextContentStyle"/>
+	        
+	       <TextView 
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:id="@+id/time_text"
+	            android:gravity="center"
+	            android:text="@string/tv_ratting"
+	            style="@style/MyTextContentStyle" /> 
+	    </LinearLayout>
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:background="@drawable/live_huibobg">
+	        <com.wg.cnlive.myviews.MyListView
+		        android:id="@id/listview"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:cacheColorHint="@color/alpha0"
+		        android:dividerHeight="3dp"
+		        android:divider="@drawable/live_channel" />
+	    </LinearLayout>
+
+    </LinearLayout>
+    
+
+</LinearLayout>
