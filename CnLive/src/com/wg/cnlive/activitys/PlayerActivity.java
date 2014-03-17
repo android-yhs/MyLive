@@ -57,11 +57,9 @@ public class PlayerActivity extends BaseActivity implements OnInfoListener, OnBu
 				@Override
 				public void onPrepared(MediaPlayer mediaPlayer) {
 					// optional need Vitamio 4.0
-//					mediaPlayer.setPlaybackSpeed(1.0f);
+					mediaPlayer.setPlaybackSpeed(1.0f);
 				}
 			});
-			isStart = true;
-			mVideoView.start();
 		}
 	}
 
@@ -77,7 +75,6 @@ public class PlayerActivity extends BaseActivity implements OnInfoListener, OnBu
 			if (mVideoView.isPlaying()) {
 				mVideoView.pause();
 				isStart = true;
-
 			}
 			break;
 		case MediaPlayer.MEDIA_INFO_BUFFERING_END:

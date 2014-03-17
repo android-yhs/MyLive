@@ -53,6 +53,8 @@
         <activity
             android:name=".activitys.PlayerActivity"
             android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:launchMode="singleTop" >
         </activity>
     </application>

@@ -20,7 +20,6 @@ import com.wg.cnlive.constant.MyUrlConstant;
 import com.wg.cnlive.model.HomeModel;
 import com.wg.cnlive.model.HomeModel.RecommendModel;
 import com.wg.cnlive.myviews.CircleFlowIndicator;
-import com.wg.cnlive.myviews.MyListView;
 import com.wg.cnlive.myviews.ViewFlow;
 import com.wg.cnlive.myviews.ViewFlow.ViewSwitchListener;
 import com.wg.cnlive.tools.HttpTool;
@@ -181,7 +180,7 @@ public class HomeActivity extends BaseActivity implements IXListViewListener,Dia
 	public void onClick(View view, int witch) {
 		MyDialog.hideDialog() ;
 		switch (witch) {
-		case 1:
+		case 1: 
 			onBackPressed() ;
 			break;
 
