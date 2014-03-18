@@ -21,7 +21,8 @@ public class DialogTool {
 	
 	public static void hideWaitDialog() {
 		if (DialogTool.waitDialog != null) {
-			DialogTool.waitDialog.cancel();
+			DialogTool.waitDialog.dismiss();
+			DialogTool.waitDialog = null ;
         }
 	}
 }

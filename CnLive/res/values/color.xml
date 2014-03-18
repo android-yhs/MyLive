@@ -4,6 +4,6 @@
     <color name="red">#ff0000</color>
     <color name="gray">#ffaeaeae</color>
     <color name="alpha0">#00000000</color>
-    <color name="dialog_bg">#808B2323</color>
-    <color name="dialog_btn_f">#808A2BE2</color>
+    <color name="dialog_bg">#804682B4</color>
+    <color name="dialog_btn_f">#80473C8B</color>
 </resources>

@@ -10,5 +10,20 @@
     <string name="bottom_title5">设置</string>
     <string name="tv_ratting">电视榜</string>
     <string name="live_title">直播墙</string>
+    
+    <string-array name="vedioarray">
+        <item>电影</item>
+        <item>电视剧</item>
+        <item>综艺</item>
+        <item>动漫</item>
+        <item>原创</item>
+    </string-array>
+    <string-array name="vediourlarray">
+        <item>http://tv.cnlivetv.com/clt/pages/clt/v1/contentList.jsp?type=1&amp;nodeType=1&amp;pf=content_list1</item>
+        <item>http://tv.cnlivetv.com/clt/pages/clt/v1/contentList.jsp?type=1&amp;nodeType=2&amp;pf=content_list2</item>
+        <item>http://tv.cnlivetv.com/clt/pages/clt/v1/contentList.jsp?type=1&amp;nodeType=3&amp;pf=content_list3</item>
+        <item>http://tv.cnlivetv.com/clt/pages/clt/v1/contentList.jsp?type=1&amp;nodeType=4&amp;pf=content_list4</item>
+        <item>http://tv.cnlivetv.com/clt/pages/clt/v1/contentList.jsp?type=1&amp;nodeType=5&amp;pf=content_list5</item>
+    </string-array>
 
 </resources>

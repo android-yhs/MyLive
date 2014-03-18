@@ -18,8 +18,16 @@ public class MediaTool {
 	
 	public static void playVideo(Context context,String url) {
 		Intent intent = new Intent() ;
-		intent.putExtra("path", url) ;
+		intent.putExtra("reqPlayUrl", url) ;
 		intent.setClass(context, PlayerActivity.class) ;
 		context.startActivity(intent) ;
+	}
+	
+	public static void play(Context context,String path) {
+		String extension = MimeTypeMap.getFileExtensionFromUrl(path);
+		String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+		Intent mediaIntent = new Intent(Intent.ACTION_VIEW);
+		mediaIntent.setDataAndType(Uri.parse(path), mimeType);
+		context.startActivity(mediaIntent);
 	}
 }

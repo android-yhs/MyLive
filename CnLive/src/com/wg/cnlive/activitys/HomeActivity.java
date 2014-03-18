@@ -36,7 +36,6 @@ public class HomeActivity extends BaseActivity implements IXListViewListener,Dia
 	private ViewFlow mainViewFlow;
 	private CircleFlowIndicator mainFlowIndicator;
 	private View headView ;
-//	private MyListView listview ;
 	private XListView listview ;
 	private boolean isFirst = true ;
 	private HomeListAdapter adapter ;

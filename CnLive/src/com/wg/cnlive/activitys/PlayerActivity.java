@@ -1,7 +1,18 @@
 package com.wg.cnlive.activitys;
 
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxStatus;
+import com.google.gson.Gson;
 import com.wg.cnlive.R;
+import com.wg.cnlive.constant.MyUrlConstant;
+import com.wg.cnlive.model.PlayDateModel;
+import com.wg.cnlive.model.VedioItemModel;
+import com.wg.cnlive.tools.HttpTool;
 import com.wg.cnlive.tools.LogTool;
+import com.wg.cnlive.tools.MediaTool;
+import com.wg.mylib.util.LogUtil;
+import com.wg.mylib.util.StringUtil;
+import com.wg.mylib.util.TipsUtil;
 
 import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
@@ -34,55 +45,69 @@ public class PlayerActivity extends BaseActivity implements OnInfoListener, OnBu
 		if (!LibsChecker.checkVitamioLibs(this))
 			return;
 		setContentView(R.layout.activity_player);
+		aQuery = new AQuery(this) ;
 		mVideoView = (VideoView) findViewById(R.id.buffer);
-		Intent intent = getIntent() ;
-		path = intent.getStringExtra("path") ;
 		
-		if (path == "") {
-			// Tell the user to provide a media file URL/path.
-			Toast.makeText(PlayerActivity.this, "Please edit VideoBuffer Activity, and set path" + " variable to your media file URL/path", Toast.LENGTH_LONG).show();
-			return;
-		} else {
-			/*
-			 * Alternatively,for streaming media you can use
-			 * mVideoView.setVideoURI(Uri.parse(URLstring));
-			 */
-			uri = Uri.parse(path);
-			mVideoView.setVideoURI(uri);
-			mVideoView.setMediaController(new MediaController(this));
-			mVideoView.requestFocus();
-			mVideoView.setOnInfoListener(this);
-			mVideoView.setOnBufferingUpdateListener(this);
-			mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-				@Override
-				public void onPrepared(MediaPlayer mediaPlayer) {
-					// optional need Vitamio 4.0
-					mediaPlayer.setPlaybackSpeed(1.0f);
-				}
-			});
-		}
 	}
-
+	
 	@Override
 	protected void getDataFromInternet() {
+		Intent intent = getIntent() ;
+		String reqPlayUrl = intent.getStringExtra("reqPlayUrl") ;
 		
+		if (StringUtil.isEmpty(reqPlayUrl)) {
+			TipsUtil.show(this, "未发现视频地址，请重试！") ;
+			return;
+		} else {
+			showWaitDialog() ;
+			HttpTool.ajax(aQuery, this, HttpTool.getParamsFormUrl(reqPlayUrl), MyUrlConstant.PLAY_URL, String.class, "playCallBack") ;
+		}
+	}
+	
+	public void playCallBack(String url, String content, AjaxStatus status){
+		LogTool.info(content) ;
+		hideWaitDialog() ;
+		Gson gson = new Gson() ;
+		PlayDateModel playDataModel = gson.fromJson(content, PlayDateModel.class) ;
+		path = playDataModel.url ;
+//		path = "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8" ;
+		MediaTool.play(this, path) ;
+//		initPlayer() ;
+	}
+	
+	private void initPlayer() {
+		uri = Uri.parse(path);
+		mVideoView.setVideoURI(uri);
+		mVideoView.setMediaController(new MediaController(this));
+		mVideoView.requestFocus();
+		mVideoView.setOnInfoListener(this);
+		mVideoView.setOnBufferingUpdateListener(this);
+		mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+			@Override
+			public void onPrepared(MediaPlayer mediaPlayer) {
+				mediaPlayer.setPlaybackSpeed(1.0f);
+			}
+		});
 	}
 
 	@Override
 	public boolean onInfo(MediaPlayer mp, int what, int extra) {
 		switch (what) {
 		case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+			LogUtil.info("MEDIA_INFO_BUFFERING_START") ;
 			if (mVideoView.isPlaying()) {
 				mVideoView.pause();
 				isStart = true;
 			}
 			break;
 		case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+			LogUtil.info("MEDIA_INFO_BUFFERING_END") ;
 			if (isStart) {
 				mVideoView.start();
 			}
 			break;
 		case MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED:
+			LogUtil.info("MEDIA_INFO_DOWNLOAD_RATE_CHANGED") ;
 			break;
 		}
 		return true;
@@ -90,6 +115,7 @@ public class PlayerActivity extends BaseActivity implements OnInfoListener, OnBu
 
 	@Override
 	public void onBufferingUpdate(MediaPlayer mp, int percent) {
+		LogUtil.info("percent=="+percent) ;
 	}
 	
 	@Override

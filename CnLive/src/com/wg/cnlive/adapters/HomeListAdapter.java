@@ -80,23 +80,7 @@ public class HomeListAdapter extends BaseAdapter {
 							int position, long id) {
 						NodeContentModel contentModel = nodeModel.contents
 								.get(position);
-						Map<String, Object> params = new HashMap<String, Object>();
-						params.put("WD_CLIENT_TYPE", "3");
-						DialogTool.showWaitDialog(context) ;
-						aQuery.ajax(contentModel.reqPlayUrl, params,
-								String.class, new AjaxCallback<String>() {
-									@Override
-									public void callback(String url,
-											String json, AjaxStatus status) {
-										if (json != null) {
-											LogTool.info(json);
-											DialogTool.hideWaitDialog() ;
-											Gson gson = new Gson() ;
-											PlayDateModel playDataModel = gson.fromJson(json, PlayDateModel.class) ;
-											MediaTool.playVideo(context, playDataModel.url) ;
-										}
-									}
-								});
+						MediaTool.playVideo(context, contentModel.reqPlayUrl) ;
 					}
 				});
 		return view;

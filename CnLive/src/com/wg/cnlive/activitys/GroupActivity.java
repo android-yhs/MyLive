@@ -65,7 +65,7 @@ public class GroupActivity extends AbstractMyActivityGroup {
 				startLeft = imageWidth;
 				break;
 			case R.id.radio_channel:
-				setContainerView(CHANNEL, HomeActivity.class);
+				setContainerView(CHANNEL, VedioListActivity.class);
 				MoveBg.moveFrontBg(img, startLeft, imageWidth * 2, 0, 0);
 				startLeft = imageWidth * 2;
 				break;

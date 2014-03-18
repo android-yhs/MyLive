@@ -10,5 +10,6 @@
     <dimen name="small_image_width">40dp</dimen>
     <dimen name="small_image_height">25dp</dimen>
     <dimen name="player_height">350dp</dimen>
+    <dimen name="vedio_item_height">120dp</dimen>
 
 </resources>

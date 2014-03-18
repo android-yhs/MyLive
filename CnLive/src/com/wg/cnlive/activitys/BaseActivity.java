@@ -39,7 +39,7 @@ public abstract class BaseActivity extends Activity {
 		overridePendingTransition(in, out);
 	}
 	
-	public void showWaitDialog() {
+	protected void showWaitDialog() {
 		if (waitDialog == null) {
             waitDialog = new Dialog(this, R.style.dialog);
             View view = View.inflate(this, R.layout.wait_layout, null);
@@ -50,7 +50,7 @@ public abstract class BaseActivity extends Activity {
 		waitDialog.show() ;
 	}
 	
-	public void hideWaitDialog() {
+	protected void hideWaitDialog() {
 		if (waitDialog != null) {
             waitDialog.cancel();
         }
